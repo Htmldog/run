@@ -25,7 +25,7 @@ function move(){
                 console.log("no crash!");
             }
         }
-	},10);
+	},100);
 }
 //
 function Increase(){
