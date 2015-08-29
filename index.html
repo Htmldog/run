@@ -23,8 +23,8 @@
 .pic8{-webkit-transform:translateZ(-200px) rotateY(90deg);}
 
 .gift{-webkit-transform:translateZ(0px) rotateX(0deg);width:200px;height:100px;opacity:.7;  filter:alpha(opacity=70);}
-.gift span{float:left;width:20px;height:20px;background:#0ff;}
-.gift span:nth-child(3n+1){background:#000;}
+.gift span{float:left;width:20px;height:20px;/*background:#0ff;*/}
+.gift span:nth-child(3n+1){/*background:#000;*/}
 .gift1{-webkit-transform:translateZ(50px) rotateX(0deg);}
 .gift2{-webkit-transform:translateZ(0px) rotateX(0deg);}
 
@@ -37,6 +37,7 @@
 .wrap img,.gift{left:50%;}
 .pic_c,.gift{margin-left:50px;}
 .pic_r{margin-left:200px;}
+.gift .solid{background:#000;}
 </style>
 
 <div class="stage por" id="J_stage">
@@ -112,6 +113,7 @@
 </div>
 
 <script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="obstruction.js"></script>
 
 	
 </body>
