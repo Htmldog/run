@@ -154,9 +154,11 @@ document.onkeydown=function(event){
         case 40:
             console.log("down");
             moveSelf("down");
+            break;
         //"W"键,提早提示障碍物位置
         case 87:
             warning();
+            break;
         default:; 
     }
 };
