@@ -40,18 +40,17 @@ function getObstruction(obj){
 	return unit;
 }
 //绘制一个单元格
-function draw(obj,obstructionArr){
+function draw(obj,arrPos){
 	var units=getObstruction(obj);
-	var arrPos = arrToPos(obstructionArr);
 	for(var i=0,len=arrPos.length;i<len;i++){
 		var index = xyToIndex(arrPos[i].x,arrPos[i].y);
 		units[index].className="solid";
 	}
 }
 //绘制障碍物
-draw(J_g_2,obstruction1);
+draw(J_g_2,operObstruction);
 //绘制自己
-draw(J_g_1,self);
+draw(J_g_1,operSelf);
 //碰撞检测
 function isCrash(obstruction,self){
 	var map1={};

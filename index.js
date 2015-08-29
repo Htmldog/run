@@ -85,7 +85,28 @@ function start(){
     move();
     start.state=true;
 }
-
+//
+var selfUnits=J_g_1.getElementsByTagName("span");
+function clearSite(){
+    for(var i=0;i<50;i++){
+        selfUnits[i].className="";
+    }
+}
+//
+function left(){
+    for(var i=0,len=operSelf.length;i<len;i++){
+        operSelf[i].x--;
+    }
+    clearSite();
+    draw(J_g_1,operSelf);
+}
+function up(){
+    for(var i=0,len=operSelf.length;i<len;i++){
+        operSelf[i].y--;
+    }
+    clearSite();
+    draw(J_g_1,operSelf);    
+}
 
 document.onkeydown=function(event){
     var e = event || window.event;
@@ -100,9 +121,12 @@ document.onkeydown=function(event){
             break;
         case 37:
             console.log("left");
+            left();
+            // draw(J_g_1,operSelf);
             break;
         case 38:
             console.log("up");
+            up();
             break;
         case 39:
             console.log("right");
