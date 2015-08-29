@@ -130,6 +130,7 @@ function moveSelf(dir){
 document.onkeydown=function(event){
     var e = event || window.event;
     var n = e.keyCode;
+    console.log(n);
     switch(n){
         //enter
         case 13:
@@ -153,6 +154,9 @@ document.onkeydown=function(event){
         case 40:
             console.log("down");
             moveSelf("down");
+        //"W"键,提早提示障碍物位置
+        case 87:
+            warning();
         default:; 
     }
 };

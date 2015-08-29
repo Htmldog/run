@@ -40,11 +40,16 @@ function getObstruction(obj){
 	return unit;
 }
 //绘制一个单元格
-function draw(obj,arrPos){
+function draw(obj,arrPos,type){
 	var units=getObstruction(obj);
 	for(var i=0,len=arrPos.length;i<len;i++){
 		var index = xyToIndex(arrPos[i].x,arrPos[i].y);
-		units[index].className="solid";
+		if(type==1){
+			units[index].className="solid2";
+		}else{
+			units[index].className="solid";
+		}
+		
 	}
 }
 //绘制障碍物
@@ -66,6 +71,9 @@ function isCrash(obstruction,self){
 	}
 	return false;
 }
-
+//
+function warning(){
+	draw(J_g_1,operObstruction,1);
+}
 
 
