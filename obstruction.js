@@ -44,9 +44,10 @@ function draw(obj,arrPos,type){
 	var units=getObstruction(obj);
 	for(var i=0,len=arrPos.length;i<len;i++){
 		var index = xyToIndex(arrPos[i].x,arrPos[i].y);
-		if(type==1){
+		if(type==1&&units[index].className=="solid"){
 			units[index].className+=" solid2";
-		}else{
+		}
+		if(type!=1){
 			units[index].className="solid";
 		}
 		
