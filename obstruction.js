@@ -8,8 +8,8 @@ var obstruction1=[
 var self=[
 	[0,0,0,0,0,0,0,0,0,0],
 	[0,0,0,0,0,0,0,0,0,0],
-	[0,0,0,0,0,0,0,0,0,0],
 	[0,0,0,0,1,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
 	[0,0,0,0,0,0,0,0,0,0]
 ]
 var operObstruction=arrToPos(obstruction1);
@@ -45,7 +45,7 @@ function draw(obj,arrPos,type){
 	for(var i=0,len=arrPos.length;i<len;i++){
 		var index = xyToIndex(arrPos[i].x,arrPos[i].y);
 		if(type==1){
-			units[index].className="solid2";
+			units[index].className+=" solid2";
 		}else{
 			units[index].className="solid";
 		}
@@ -74,6 +74,11 @@ function isCrash(obstruction,self){
 //
 function warning(){
 	draw(J_g_1,operObstruction,1);
+	setTimeout(function(){
+		clearSite();
+		draw(J_g_1,operSelf);
+	},100);
+	
 }
 
 
