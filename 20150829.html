@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>html5</title>
+</head>
+<body>
+	
+<style>
+.poa{position:absolute;}
+.por{position:relative;}
+
+.stage{-webkit-perspective:100px;-webkit-perspective-origin:50% 7%;width:500px;height:272px;margin:100px auto;overflow: hidden;border:1px solid #ccc;}
+
+.pic1{-webkit-transform:translateZ(100px) rotateX(90deg);}
+.pic2{-webkit-transform:translateZ(0px) rotateX(90deg);}
+.pic3{-webkit-transform:translateZ(-100px) rotateX(90deg);}
+.pic4{-webkit-transform:translateZ(-200px) rotateX(90deg);}
+
+.pic5{-webkit-transform:translateZ(100px) rotateY(90deg);}
+.pic6{-webkit-transform:translateZ(0px) rotateY(90deg);}
+.pic7{-webkit-transform:translateZ(-100px) rotateY(90deg);}
+.pic8{-webkit-transform:translateZ(-200px) rotateY(90deg);}
+
+.gift{-webkit-transform:translateZ(0px) rotateX(90deg);}
+
+.wrap{
+	width:200px;height:100px;
+	-webkit-transform-style:preserve-3d;
+    -webkit-transform:translateZ(0px);
+    top:19px;
+}
+.wrap img{left:50%;}
+.pic_c{margin-left:50px;}
+.pic_r{margin-left:200px;}
+</style>
+
+<div class="stage por" id="J_stage">
+	<div class="wrap poa" style="" id="J_wrap">
+		<img src="http://dummyimage.com/200x100/f00" id="J1" class="poa pic1 pic_c" alt=""/>
+        <img src="http://dummyimage.com/200x100/0f0" id="J2" class="poa pic2 pic_c" alt=""/>
+        <img src="http://dummyimage.com/200x100/00f" id="J3" class="poa pic3 pic_c" alt=""/>
+        <img src="http://dummyimage.com/200x100/ff0" id="J4" class="poa pic4 pic_c" alt=""/>
+
+        <img src="http://dummyimage.com/100x50/ccc" id="J5" class="poa pic5" alt=""/>
+        <img src="http://dummyimage.com/100x50/999" id="J6" class="poa pic6" alt=""/>
+        <img src="http://dummyimage.com/100x50/ccc" id="J7" class="poa pic7" alt=""/>
+        <img src="http://dummyimage.com/100x50/999" id="J8" class="poa pic8" alt=""/>
+
+        <img src="http://dummyimage.com/100x50/999" id="J9" class="poa pic5 pic_r" alt=""/>
+        <img src="http://dummyimage.com/100x50/ccc" id="J10" class="poa pic6 pic_r" alt=""/>
+        <img src="http://dummyimage.com/100x50/999" id="J11" class="poa pic7 pic_r" alt=""/>
+        <img src="http://dummyimage.com/100x50/999" id="J12" class="poa pic8 pic_r" alt=""/>
+	</div>
+</div>
+
+<script type="text/javascript">
+var t1=t5=t9=100,
+t2=t6=t10=0,
+t3=t7=t11=-100,
+t4=t8=t12=-200;
+function move(){
+	var count=0;
+	window.t = setInterval(function(){
+        console.log(12121212)
+		count++;
+		if(count>100){
+			clearInterval(window.t);
+            cycle();
+			return;
+		}
+        Increase();
+	},10);
+}
+//
+function Increase(){
+    for(var i=1;i<13;i++){
+        window["t"+i]++;       
+        if(i<5){
+            window["J"+i].style.webkitTransform="translateZ("+window["t"+i]+"px) rotateX(90deg)";
+        }else{
+            window["J"+i].style.webkitTransform="translateZ("+window["t"+i]+"px) rotateY(90deg)";
+        }
+    }
+}
+//
+function cycle(){
+    var temp,reg=/\-?[0-9]+\.?[0-9]*/g,temp2,isCycle=false;
+    for(var i=1;i<13;i++){
+        temp=window["J"+i].style.webkitTransform;
+        temp2=temp.match(reg);
+        if(temp2[0]==200){
+            isCycle=true;
+            if(i<5){
+                window["J"+i].style.webkitTransform="translateZ(-200px)rotateX(90deg)";
+            }else{
+                window["J"+i].style.webkitTransform="translateZ(-200px)rotateY(90deg)";
+            }
+            window["t"+i]=-200;
+            // move();
+        }
+    }
+    if(isCycle){
+        move();
+    }
+}
+//
+function stop(){
+    clearInterval(window.t);
+    t1=t5=t9=100,
+    t2=t6=t10=0,
+    t3=t7=t11=-100,
+    t4=t8=t12=-200;
+}
+//
+function start(){
+    move();
+    start.state=true;
+}
+
+
+document.onkeydown=function(event){
+    var e = event || window.event;
+    var n = e.keyCode;
+    switch(n){
+        //enter
+        case 13:
+            start();
+            break;
+        case 27:
+            stop();
+            break;
+        case 37:
+            console.log("left");
+            break;
+        case 38:
+            console.log("up");
+            break;
+        case 39:
+            console.log("right");
+            break;
+        case 40:
+            console.log("down");
+        default:; 
+    }
+};
+</script>
+
+	
+</body>
+</html>
