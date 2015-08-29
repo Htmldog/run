@@ -93,19 +93,38 @@ function clearSite(){
     }
 }
 //
-function left(){
+function moveSelf(dir){
     for(var i=0,len=operSelf.length;i<len;i++){
-        operSelf[i].x--;
+        switch(dir){
+            case "up":
+                operSelf[i].y--;
+                if(operSelf[i].y<0){
+                    operSelf[i].y=0;
+                }
+                break;
+            case "down":
+                operSelf[i].y++;
+                if(operSelf[i].y>4){
+                    operSelf[i].y=4;
+                }
+                break;
+            case "left":
+                operSelf[i].x--;
+                if(operSelf[i].x<0){
+                    operSelf[i].x=0;
+                }
+                break;
+            case "right":
+                operSelf[i].x++;
+                if(operSelf[i].x>9){
+                    operSelf[i].x=9;
+                }
+                break;
+            default:;
+        }
     }
     clearSite();
     draw(J_g_1,operSelf);
-}
-function up(){
-    for(var i=0,len=operSelf.length;i<len;i++){
-        operSelf[i].y--;
-    }
-    clearSite();
-    draw(J_g_1,operSelf);    
 }
 
 document.onkeydown=function(event){
@@ -121,18 +140,19 @@ document.onkeydown=function(event){
             break;
         case 37:
             console.log("left");
-            left();
-            // draw(J_g_1,operSelf);
+            moveSelf("left");
             break;
         case 38:
             console.log("up");
-            up();
+            moveSelf("up");
             break;
         case 39:
             console.log("right");
+            moveSelf("right")
             break;
         case 40:
             console.log("down");
+            moveSelf("down");
         default:; 
     }
 };
