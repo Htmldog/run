@@ -39,7 +39,7 @@ function Increase(){
     }
 }
 //
-var g2=0;
+var g2=-200;
 function IncreaseGift(){
     if(!window["J_g_2"]){
         return;
