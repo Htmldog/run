@@ -14,6 +14,17 @@ function move(){
 		}
         Increase();
         IncreaseGift();
+        //判断是否相撞
+        var reg = /\-?[0-9]+\.?[0-9]*/g;
+        var temp=J_g_2.style.webkitTransform;
+        temp=temp.match(reg);
+        if(temp[0]==51){
+            if(isCrash(operObstruction,operSelf)){
+                console.log("crash!");
+            }else{
+                console.log("no crash!");
+            }
+        }
 	},10);
 }
 //
@@ -35,7 +46,7 @@ function IncreaseGift(){
     }
     g2++;
     if(g2==100){
-        J_g_2.parentNode.removeChild(J_g_2);
+        // J_g_2.parentNode.removeChild(J_g_2);
     }else{
         J_g_2.style.webkitTransform="translateZ("+g2+"px) rotateX(0deg)";
     }

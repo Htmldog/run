@@ -5,6 +5,15 @@ var obstruction1=[
 	[0,0,0,0,0,0,0,0,0,0],
 	[0,0,0,0,0,0,0,0,0,0]
 ];
+var self=[
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,1,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0]
+]
+var operObstruction=arrToPos(obstruction1);
+var operSelf=arrToPos(self);
 //将2维数组变成元素为坐标信息的1维数组的
 function arrToPos(arr) {
 	var temp,pos=[];
@@ -33,13 +42,31 @@ function getObstruction(obj){
 //绘制一个单元格
 function draw(obj,obstructionArr){
 	var units=getObstruction(obj);
-	var arrPos = arrToPos(obstruction1);
+	var arrPos = arrToPos(obstructionArr);
 	for(var i=0,len=arrPos.length;i<len;i++){
 		var index = xyToIndex(arrPos[i].x,arrPos[i].y);
 		units[index].className="solid";
 	}
 }
+//绘制障碍物
 draw(J_g_2,obstruction1);
+//绘制自己
+draw(J_g_1,self);
+//碰撞检测
+function isCrash(obstruction,self){
+	var map1={};
+	for(var i=0,len=obstruction.length;i<len;i++){
+		var key = obstruction[i].x+"_"+obstruction[i].y;
+		map1[key]=1;
+	}
+	for(var j=0,len2=self.length;j<len2;j++){
+		var key2=self[j].x+"_"+self[j].y;
+		if(map1[key2]){
+			return true;
+		}
+	}
+	return false;
+}
 
 
 

@@ -10,7 +10,7 @@
 .poa{position:absolute;}
 .por{position:relative;}
 
-.stage{-webkit-perspective:100px;-webkit-perspective-origin:50% 7%;width:500px;height:272px;margin:100px auto;overflow: hidden;border:1px solid #ccc;}
+.stage{-webkit-perspective:100px;-webkit-perspective-origin:50% 50%;width:500px;height:272px;margin:100px auto;overflow: hidden;border:1px solid #ccc;}
 
 .pic1{-webkit-transform:translateZ(100px) rotateX(90deg);}
 .pic2{-webkit-transform:translateZ(0px) rotateX(90deg);}
@@ -22,22 +22,22 @@
 .pic7{-webkit-transform:translateZ(-100px) rotateY(90deg);}
 .pic8{-webkit-transform:translateZ(-200px) rotateY(90deg);}
 
-.gift{-webkit-transform:translateZ(0px) rotateX(0deg);width:200px;height:100px;opacity:.7;  filter:alpha(opacity=70);}
-.gift span{float:left;width:20px;height:20px;/*background:#0ff;*/}
+.gift{-webkit-transform:translateZ(0px) rotateX(0deg);width:200px;height:100px;}
+.gift span{float:left;width:20px;height:20px;background:#f00;opacity:.2;  filter:alpha(opacity=20);}
 .gift span:nth-child(3n+1){/*background:#000;*/}
-.gift1{-webkit-transform:translateZ(50px) rotateX(0deg);}
+.gift1{-webkit-transform:translateZ(51px) rotateX(0deg);}
 .gift2{-webkit-transform:translateZ(0px) rotateX(0deg);}
 
 .wrap{
 	width:200px;height:100px;
 	-webkit-transform-style:preserve-3d;
     -webkit-transform:translateZ(0px);
-    top:19px;
+    top:100px;
 }
 .wrap img,.gift{left:50%;}
 .pic_c,.gift{margin-left:50px;}
 .pic_r{margin-left:200px;}
-.gift .solid{background:#000;}
+.gift .solid{background:#000;opacity:1;  filter:alpha(opacity=1);}
 </style>
 
 <div class="stage por" id="J_stage">
@@ -56,6 +56,58 @@
         <img src="http://dummyimage.com/100x50/ccc" id="J10" class="poa pic6 pic_r" alt=""/>
         <img src="http://dummyimage.com/100x50/999" id="J11" class="poa pic7 pic_r" alt=""/>
         <img src="http://dummyimage.com/100x50/999" id="J12" class="poa pic8 pic_r" alt=""/>
+        <div class="gift poa gift1" id="J_g_1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
         <div class="gift poa gift2" id="J_g_2">
             <span></span>
