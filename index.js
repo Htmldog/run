@@ -21,9 +21,14 @@ function move(){
         if(temp[0]==51){
             if(isCrash(operObstruction,operSelf)){
                 console.log("crash!");
+                J_txt.innerHTML = "Crash!";
             }else{
                 console.log("no crash!");
+                J_txt.innerHTML = "Good!";
             }
+            setTimeout(function(){
+                J_txt.innerHTML = "";
+            },1000);
         }
 	},10);
 }

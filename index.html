@@ -11,7 +11,7 @@
 .poa{position:absolute;}
 .por{position:relative;}
 
-.stage{-webkit-perspective:100px;-webkit-perspective-origin:50% 50%;width:500px;height:272px;margin:100px auto;overflow: hidden;border:1px solid #ccc;}
+.stage{-webkit-perspective:100px;-webkit-perspective-origin:50% 50%;width:500px;height:272px;margin:100px auto;/*overflow: hidden;border:1px solid #ccc;*/}
 
 .pic1{-webkit-transform:translateZ(100px) rotateX(90deg);}
 .pic2{-webkit-transform:translateZ(0px) rotateX(90deg);}
@@ -40,17 +40,19 @@
 .pic_c,.gift{margin-left:50px;}
 .gift{margin-top:-50px;}
 .pic_r{margin-left:200px;}
-.gift .solid{background:#666;opacity:1;filter:alpha(opacity=1);visibility:visible;}
+.gift .solid{background:#000;opacity:1;filter:alpha(opacity=1);visibility:visible;-webkit-animation:twinkling 1s infinite ease-in-out;}
 .gift .solid2{background:#f00;opacity:1;visibility:visible;}
 .gift .solid3{background:#0f0;opacity:1;visibility:visible;}
+
+.text{text-align:center;font-weight:bold;color:#f00;font-size:30px;margin-top:-50px;}
 
 /*闪烁效果*/
 @-webkit-keyframes twinkling{    /*透明度由0到1*/  
    0%{  
-      opacity:0.9; /*透明度为0*/  
+      background:#f00;
     }  
    100%{  
-      opacity:1; /*透明度为1*/
+      background:#0f0;
    }  
 }
 .twink{-webkit-animation:twinkling 1s infinite ease-in-out;}
@@ -59,10 +61,10 @@
 
 <div class="stage por" id="J_stage">
 	<div class="wrap poa" style="" id="J_wrap">
-		<img src="http://dummyimage.com/200x100/f00" id="J1" class="poa pic1 pic_c dis" alt=""/>
-        <img src="http://dummyimage.com/200x100/0f0" id="J2" class="poa pic2 pic_c dis" alt=""/>
-        <img src="http://dummyimage.com/200x100/00f" id="J3" class="poa pic3 pic_c dis" alt=""/>
-        <img src="http://dummyimage.com/200x100/ff0" id="J4" class="poa pic4 pic_c dis" alt=""/>
+		<img src="http://dummyimage.com/200x100/999" id="J1" class="poa pic1 pic_c dis" alt=""/>
+        <img src="http://dummyimage.com/200x100/ccc" id="J2" class="poa pic2 pic_c dis" alt=""/>
+        <img src="http://dummyimage.com/200x100/666" id="J3" class="poa pic3 pic_c dis" alt=""/>
+        <img src="http://dummyimage.com/200x100/ccc" id="J4" class="poa pic4 pic_c dis" alt=""/>
 
         <img src="http://dummyimage.com/100x50/ccc" id="J5" class="poa pic5" alt=""/>
         <img src="http://dummyimage.com/100x50/999" id="J6" class="poa pic6" alt=""/>
@@ -179,6 +181,7 @@
             <span></span>
         </div>
 	</div>
+    <div class="text" id="J_txt"></div>
 </div>
 
 <script type="text/javascript" src="index.js"></script>
