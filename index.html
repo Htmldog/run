@@ -40,8 +40,21 @@
 .pic_c,.gift{margin-left:50px;}
 .gift{margin-top:-50px;}
 .pic_r{margin-left:200px;}
-.gift .solid{background:#000;opacity:1;  filter:alpha(opacity=1);visibility:visible;}
-.gift .solid2{background:#f00;visibility:visible;}
+.gift .solid{background:#666;opacity:1;filter:alpha(opacity=1);visibility:visible;}
+.gift .solid2{background:#f00;opacity:1;visibility:visible;}
+.gift .solid3{background:#0f0;opacity:1;visibility:visible;}
+
+/*闪烁效果*/
+@-webkit-keyframes twinkling{    /*透明度由0到1*/  
+   0%{  
+      opacity:0.9; /*透明度为0*/  
+    }  
+   100%{  
+      opacity:1; /*透明度为1*/
+   }  
+}
+.twink{-webkit-animation:twinkling 1s infinite ease-in-out;}
+
 </style>
 
 <div class="stage por" id="J_stage">

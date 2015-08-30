@@ -39,24 +39,26 @@ function getObstruction(obj){
 	var unit = obj.getElementsByTagName("span");
 	return unit;
 }
+var cls1="solid";//普通黑色
+var cls2="solid2";//红色警告
+var cls3="solid3";//绿色同行
 //绘制一个单元格
-function draw(obj,arrPos,type){
+function draw(obj,arrPos,cls){
 	var units=getObstruction(obj);
 	for(var i=0,len=arrPos.length;i<len;i++){
 		var index = xyToIndex(arrPos[i].x,arrPos[i].y);
-		if(type==1&&units[index].className=="solid"){
-			units[index].className+=" solid2";
-		}
-		if(type!=1){
-			units[index].className="solid";
+		if(units[index].className==cls1){
+			units[index].className+=" "+cls;
+		}else{
+			units[index].className=cls;
 		}
 		
 	}
 }
 //绘制障碍物
-draw(J_g_2,operObstruction);
+draw(J_g_2,operObstruction,cls1);
 //绘制自己
-draw(J_g_1,operSelf);
+draw(J_g_1,operSelf,cls1);
 //碰撞检测
 function isCrash(obstruction,self){
 	var map1={};
@@ -74,12 +76,26 @@ function isCrash(obstruction,self){
 }
 //
 function warning(){
-	draw(J_g_1,operObstruction,1);
+	if(isCrash(operObstruction,operSelf)){
+		draw(J_g_1,operSelf,cls2);
+	}else{
+		draw(J_g_1,operSelf,cls3);
+	}
 	setTimeout(function(){
 		clearSite();
-		draw(J_g_1,operSelf);
+		if(isCrash(operObstruction,operSelf)){
+			draw(J_g_1,operSelf,cls2);
+		}else{
+			draw(J_g_1,operSelf,cls3);
+		}
 	},100);
 	
+}
+//
+function startWarn(){
+	window.warnT=setInterval(function(){
+		warning();
+	},10);
 }
 
 

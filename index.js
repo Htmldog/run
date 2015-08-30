@@ -52,7 +52,7 @@ function IncreaseGift(){
         var index = random(1,6);
         operObstruction=arrToPos(window["obstruction"+index]);
         clearSite(J_g_2);
-        draw(J_g_2,operObstruction);
+        draw(J_g_2,operObstruction,cls1);
         J_g_2.style.display="block";
     }else{
         J_g_2.style.webkitTransform="translateZ("+g2+"px) rotateX(0deg)";
@@ -86,10 +86,12 @@ function stop(){
     t2=t6=t10=0,
     t3=t7=t11=-100,
     t4=t8=t12=-200;
+    clearInterval(window.window.warnT);
 }
 //
 function start(){
     move();
+    startWarn();
     start.state=true;
 }
 //
@@ -138,7 +140,7 @@ function moveSelf(dir){
         }
     }
     clearSite();
-    draw(J_g_1,operSelf);
+    draw(J_g_1,operSelf,cls1);
 }
 
 document.onkeydown=function(event){
