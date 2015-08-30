@@ -26,7 +26,7 @@
 .gift{-webkit-transform:translateZ(0px) rotateX(0deg);width:200px;height:100px;}
 .gift span{float:left;width:20px;height:20px;}
 .gift1{-webkit-transform:translateZ(51px) rotateX(5deg);}
-.gift1 span{background:#ccc;opacity:.1;  filter:alpha(opacity=10);border:1px solid #000;width:18px;height:18px;}
+.gift1 span{background:#ccc;opacity:.1;  filter:alpha(opacity=10);border:1px solid #000;width:18px;height:18px;visibility:hidden;}
 .gift2{-webkit-transform:translateZ(-500px) rotateX(0deg);}
 
 
@@ -40,8 +40,8 @@
 .pic_c,.gift{margin-left:50px;}
 .gift{margin-top:-50px;}
 .pic_r{margin-left:200px;}
-.gift .solid{background:#000;opacity:1;  filter:alpha(opacity=1);}
-.gift .solid2{background:#f00;}
+.gift .solid{background:#000;opacity:1;  filter:alpha(opacity=1);visibility:visible;}
+.gift .solid2{background:#f00;visibility:visible;}
 </style>
 
 <div class="stage por" id="J_stage">
@@ -169,6 +169,7 @@
 </div>
 
 <script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="obstructions.js"></script>
 <script type="text/javascript" src="obstruction.js"></script>
 
 	

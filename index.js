@@ -46,7 +46,14 @@ function IncreaseGift(){
     }
     g2++;
     if(g2==100){
-        // J_g_2.parentNode.removeChild(J_g_2);
+        J_g_2.style.display="none";
+        J_g_2.style.webkitTransform="translateZ(-500px) rotateX(0deg)";
+        g2=-500;
+        var index = random(1,6);
+        operObstruction=arrToPos(window["obstruction"+index]);
+        clearSite(J_g_2);
+        draw(J_g_2,operObstruction);
+        J_g_2.style.display="block";
     }else{
         J_g_2.style.webkitTransform="translateZ("+g2+"px) rotateX(0deg)";
     }
@@ -87,9 +94,16 @@ function start(){
 }
 //
 var selfUnits=J_g_1.getElementsByTagName("span");
-function clearSite(){
+var operUnits=J_g_2.getElementsByTagName("span");
+function clearSite(which){
+    var _operUnits;
+    if(!which){
+        _operUnits=selfUnits;
+    }else{
+        _operUnits=operUnits;
+    }
     for(var i=0;i<50;i++){
-        selfUnits[i].className="";
+        _operUnits[i].className="";
     }
 }
 //
