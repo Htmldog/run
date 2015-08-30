@@ -147,7 +147,12 @@ function moveSelf(dir){
     clearSite();
     draw(J_g_1,operSelf,cls1);
 }
-
+var dirX=50,
+dirY=50;
+//
+function changeView(){
+    J_stage.style.webkitPerspectiveOrigin=dirX+"% "+dirY+"%"
+}
 document.onkeydown=function(event){
     var e = event || window.event;
     var n = e.keyCode;
@@ -176,9 +181,41 @@ document.onkeydown=function(event){
             console.log("down");
             moveSelf("down");
             break;
-        //"W"键,提早提示障碍物位置
+        //"D"键,视角向右
+        case 68:
+            console.log("d");
+            dirX--;
+            if(dirX<31){
+                dirX=31;
+            }
+            changeView();
+            break;
+        //"A"键,视角向左
+        case 65:
+            console.log("a");
+            dirX++;
+            if(dirX>68){
+                dirX=68;
+            }
+            changeView();
+            break;
+        //"s"键,视角向下
+        case 83:
+            console.log("s");
+            dirY--;
+            if(dirY<-50){
+                dirY=-50;
+            }
+            changeView();
+            break;
+        //"W"键,视角向上
         case 87:
-            warning();
+            console.log("w");
+            dirY++;
+            if(dirY>68){
+                dirY=68;
+            }
+            changeView();
             break;
         default:; 
     }
